@@ -1,54 +1,95 @@
 class Equipo:
-   def __init__(self,logotipo, jugador, dir_tecnico,nombre):
-        self._logotipo = logotipo
-        self._author = jugador
-        self._dir_tecnico = dir_tecnico
-        self._nombre = nombre
+   def __init__(self,logotipo, jugadores, dir_tecnico,nombre):
+        self.logotipo = logotipo
+        self.jugadores  = jugadores
+        self.dir_tecnico = dir_tecnico
+        self.nombre = nombre
 
-class Juagdor:
+   def agregar_jugador(self,jugador):
+    self.jugadores.append(jugador)
+
+class Jugador:
    def __init__(self,nombre, numero, nacionalidad,posicion,rol):
-        self._nombre = nombre
-        self._numero = numero
-        self._nacionalidad = nacionalidad
-        self._posicion = posicion
-        self._rol = rol
+        self.nombre = nombre
+        self.numero = numero
+        self.nacionalidad = nacionalidad
+        self.posicion = posicion
+        self.rol = rol
 
 class Torneo:
    def __init__(self,equipo, partidos,fechas):
-        self._equipo = equipo
-        self._partidos = partidos
-        self._fechas = fechas
+        self.equipo = equipo
+        self.partidos = partidos
+        self.fechas = fechas
+
+   def agregar_partido(self, equipo1, equipo2, estadio, fecha):
+        partido = Partido(equipo1, equipo2, estadio, fecha)
+        self.partidos.append(partido)
+
+   def agregar_equipo(self, equipo):
+        self.equipos.append(equipo)
 
 
-class Dir_tecnico:
+class DirectorTecnico:
    def __init__(self,nombre, nacionalidad,porcentaje):
-        self._nombre = nombre
-        self._nacionalidad = nacionalidad
-        self._porcentaje = porcentaje
+        self.nombre = nombre
+        self.nacionalidad = nacionalidad
+        self.porcentaje = porcentaje
+   
+   def crear_director_tecnico(cls, nombre, nacionalidad, porcentaje):
+        return cls(nombre, nacionalidad, porcentaje)
 
-class Tabla_posiciones:
+   def asignar_rol(self, rol):
+    self.rol = rol
+
+class TablaPosiciones:
    def __init__(self,torneo, equipo_torneo):
-        self._torneo = torneo
-        self._equipo_torneo = equipo_torneo
+        self.torneo = torneo
+        self.equipo_torneo = equipo_torneo
 
+   def mostrar_equipos(self):
+        for equipo in self.equipo_torneo:
+            print(equipo.nombre)
+            
+   def mostrar_partidos(self):
+        for partido in self.torneo.partidos:
+            print(partido.equipo1.nombre, "vs", partido.equipo2.nombre, "en", partido.estadio, "el", partido.fecha)
 
-class Eq_torneo:
+class EquipoTorneo:
    def __init__(self,goles, puntos, partidos_ganados,partidos_empatados,partidos_perdidos):
-        self._goles = goles
-        self._puntos = puntos
-        self._partidos_ganados = partidos_ganados
-        self._partidos_empatados = partidos_empatados
-        self._partidos_perdidos = partidos_perdidos
+        self.goles = goles
+        self.puntos = puntos
+        self.partidos_ganados = partidos_ganados
+        self.partidos_empatados = partidos_empatados
+        self.partidos_perdidos = partidos_perdidos
+   def mostrar_equipos(self):
+        for equipo in self.equipos:
+            print(equipo.nombre)
+    
+   def mostrar_partidos(self):
+        for partido in self.partidos:
+            print(partido.equipo1.nombre, "vs", partido.equipo2.nombre, "fecha:", partido.fecha)
 
-class Partidos:
+class Partido:
    def __init__(self,equipo1, equipo2, estadio,fecha):
-        self._equipo1 = equipo1
-        self._equipo2= equipo2
-        self._estadio = estadio
-        self._fecha = fecha
+        self.equipo1 = equipo1
+        self.equipo2= equipo2
+        self.estadio = estadio
+        self.fecha = fecha
+
+   def mostrar_equipos(self):
+        print(f"{self.equipo1.nombre} vs {self.equipo2.nombre}")
+   
 
 class Resulatdo:
    def __init__(self,partido, goles_e1,goles_e2):
-        self._partido = partido
-        self._goles_e1 = goles_e1
-        self._goles_e2 = goles_e2
+        self.partido = partido
+        self.goles_e1 = goles_e1
+        self.goles_e2 = goles_e2
+
+   def mostrar_equipos(self):
+        print(f"{self.equipo1.nombre} vs {self.equipo2.nombre}")
+   
+   def mostrar_goles(self, goles_e1, goles_e2):
+        print(f"{self.equipo1.nombre}: {goles_e1}")
+        print(f"{self.equipo2.nombre}: {goles_e2}")
