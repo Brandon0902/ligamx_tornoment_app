@@ -1,4 +1,4 @@
-from models import Equipo, Jugador,Torneo,DirectorTecnico,TablaPosiciones,Partido
+from models import Equipo, Jugador,Torneo,DirectorTecnico,TablaPosiciones,Partido,Resultado
 
 # Crear los equipos
 atlas = Equipo("logotipo1.png", [], "dir_tecnico1", "nombre_atlas")
@@ -32,10 +32,33 @@ torneo.agregar_partido(chivas, atlas, "Estadio Akron", "2023-06-01")
 torneo.agregar_partido(america, chivas, "Estadio Azteca", "2023-07-13")
 
 #Crear directores tecnicos
-Dir_tecnico_Atlas = DirectorTecnico.crear_director_tecnico("Benjamin Mora", "Mexicano", 40.0)
-Dir_tecnico_America = DirectorTecnico.crear_director_tecnico("Fernando ortiz", "Mexicano", 80.0)
-Dir_tecnico_Chivas = DirectorTecnico.crear_director_tecnico("Veljko Paunović", "Español", 60.0)
+dir_tecnico_Atlas = DirectorTecnico("Benjamin Mora", "Mexicano", 40.0)
+DirectorTecnico.agregar_director_tecnico(dir_tecnico_Atlas)
 
-#Asignar Rol
-Quiñones = Jugador("Julian Quiñones", 33, "Colombiano", "Delantero", "Titular")
-Quiñones.asignar_rol("Titular")
+dir_tecnico_America = DirectorTecnico("Fernando ortiz", "Mexicano", 80.0)
+DirectorTecnico.agregar_director_tecnico(dir_tecnico_America)
+
+dir_tecnico_Chivas = DirectorTecnico("Veljko Paunović", "Español", 60.0)
+DirectorTecnico.agregar_director_tecnico(dir_tecnico_Chivas)
+
+
+
+#Crear partidos
+partido1 = Partido.crear_partidos(atlas, america, "Estadio Jalisco", "2023-05-09")
+partido2 = Partido.crear_partidos(chivas, atlas, "Estadio Akron", "2023-06-01")
+partido3 = Partido.crear_partidos(america, chivas, "Estadio Azteca", "2023-07-13")
+
+
+#Resultados de los partidos
+resultado1 = Resultado((atlas, america, "Estadio Jalisco", "2023-05-09"), 2, 1)
+resultado1.mostrar_equipos()
+resultado1.mostrar_goles(resultado1.goles_e1, resultado1.goles_e2)
+
+resultado2 = Resultado((chivas, atlas, "Estadio Akron", "2023-06-01"), 0, 1)
+resultado2.mostrar_equipos()
+resultado2.mostrar_goles(resultado2.goles_e1, resultado2.goles_e2)
+
+resultado3 = Resultado((america, chivas, "Estadio Azteca", "2023-07-13"), 3, 2)
+resultado3.mostrar_equipos()
+resultado3.mostrar_goles(resultado3.goles_e1, resultado3.goles_e2)
+
