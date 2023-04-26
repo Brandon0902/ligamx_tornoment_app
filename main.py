@@ -1,4 +1,4 @@
-from models import Equipo, Jugador,Torneo,DirectorTecnico,TablaPosiciones,Partido,Resultado
+from models import Equipo, Jugador,Torneo,DirectorTecnico,TablaPosiciones,EquipoTorneo,Partido,Resultado
 
 # Crear los equipos
 atlas = Equipo("logotipo1.png", [], "dir_tecnico1", "nombre_atlas")
@@ -41,6 +41,20 @@ DirectorTecnico.agregar_director_tecnico(dir_tecnico_America)
 dir_tecnico_Chivas = DirectorTecnico("Veljko Paunović", "Español", 60.0)
 DirectorTecnico.agregar_director_tecnico(dir_tecnico_Chivas)
 
+#Instancias de EquipoTorneo
+atlas = EquipoTorneo(10, 12, 3, 3, 1)
+america = EquipoTorneo(8, 9, 2, 3, 2)
+chivas = EquipoTorneo(6, 7, 1, 4, 1)
+
+# Crea la Tabla
+tabla = TablaPosiciones("Torneo Apertura", [atlas, america, chivas])
+
+# Mostrar la tabla de posiciones
+print("Tabla de Posiciones")
+print("-------------------")
+print("Equipo\tGoles\tPuntos\tPG\tPE\tPP")
+for i, equipo in enumerate(tabla.equipo_torneo, start=1):
+    print(f"{i}. {equipo}\t{equipo.goles}\t{equipo.puntos}\t{equipo.partidos_ganados}\t{equipo.partidos_empatados}\t{equipo.partidos_perdidos}")
 
 
 #Crear partidos
