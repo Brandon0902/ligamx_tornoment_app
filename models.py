@@ -50,6 +50,21 @@ class TablaPosiciones:
         self.torneo = torneo
         self.equipo_torneo = equipo_torneo
 
+
+   def agregar_goles(self, goles):
+        self.goles += goles
+
+   def agregar_puntos(self, puntos):
+        self.puntos += puntos
+
+   def agregar_partido_ganado(self):
+        self.partidos_ganados += 1
+
+   def agregar_partido_empatado(self):
+        self.partidos_empatados += 1
+
+   def agregar_partido_perdido(self):
+        self.partidos_perdidos += 1
    
             
 
