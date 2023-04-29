@@ -35,20 +35,18 @@ class Torneo:
 
 
 class DirectorTecnico:
-    directores_tecnicos = []
-
     def __init__(self, nombre, nacionalidad, porcentaje):
         self.nombre = nombre
         self.nacionalidad = nacionalidad
         self.porcentaje = porcentaje
     
     def agregar_director_tecnico(self, director_tecnico):
-        self.directores_tecnicos.append(director_tecnico)
+        self.agregar_director_tecnico.append(director_tecnico)
 
 class TablaPosiciones:
-   def __init__(self,torneo, equipo_torneo):
+   def __init__(self,torneo, equipos_torneo):
         self.torneo = torneo
-        self.equipo_torneo = equipo_torneo
+        self.equipos_torneo = equipos_torneo
 
 
    def agregar_goles(self, goles):
@@ -69,7 +67,8 @@ class TablaPosiciones:
             
 
 class EquipoTorneo:
-   def __init__(self,goles, puntos, partidos_ganados,partidos_empatados,partidos_perdidos):
+   def __init__(self,equipo,goles, puntos, partidos_ganados,partidos_empatados,partidos_perdidos):
+        self.equipo = equipo
         self.goles = goles
         self.puntos = puntos
         self.partidos_ganados = partidos_ganados
@@ -89,23 +88,19 @@ class Partido:
         self.estadio = estadio
         self.fecha = fecha
 
-   def crear_partidos(self, partidos):
-        self.crear_partidos.append(partidos)
-
-   def mostrar_partidos(self):
-        for partido in self.partidos:
-            print(partido.equipo1.nombre, "vs", partido.equipo2.nombre, "fecha:", partido.fecha)
+   def mostrar_partido(self):
+          return f"{self.equipo1} vs {self.equipo2} en {self.estadio} el {self.fecha}"
    
-
+ 
 class Resultado:
    def __init__(self,partido, goles_e1,goles_e2):
         self.partido = partido
         self.goles_e1 = goles_e1
         self.goles_e2 = goles_e2
 
-   def mostrar_equipos(self):
-        print(f"{self.equipo1.nombre} vs {self.equipo2.nombre}")
-   
-   def mostrar_goles(self, goles_e1, goles_e2):
-        print(f"{self.equipo1.nombre}: {goles_e1}")
-        print(f"{self.equipo2.nombre}: {goles_e2}")
+   def obtener_resultado_completo(self):
+        equipo1 = self.partido[0]
+        equipo2 = self.partido[1]
+        estadio = self.partido[2]
+        fecha = self.partido[3]
+        return f"{equipo1} {self.goles_e1} - {self.goles_e2} {equipo2}, {estadio}, {fecha}"
