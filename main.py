@@ -62,9 +62,9 @@ print("-------------------")
 #Crear partidos
 print("Partidos")
 print("-------------------")
-partido1 = Partido("Atlas","America", "Estadio Jalisco", "2023-05-09")
-partido2 = Partido("Atlas", "Chivas", "Estadio Akron", "2023-06-01")
-partido3 = Partido("America", "Chivas", "Estadio Azteca", "2023-07-13")
+partido1 = Partido(atlas.nombre,america.nombre, "Estadio Jalisco", "2023-05-09")
+partido2 = Partido(atlas.nombre, chivas.nombre, "Estadio Akron", "2023-06-01")
+partido3 = Partido(america.nombre, chivas.nombre, "Estadio Azteca", "2023-07-13")
 
 print(partido1.mostrar_partido())
 print(partido2.mostrar_partido())
@@ -73,10 +73,11 @@ print("-------------------")
 #Resultados de los partidos
 print("Resultados de los partidos")
 print("-------------------")
+
 resultado1 = Resultado(("Atlas", "America", "Estadio Jalisco", "2023-05-09"), 2, 1)
 resultado2 = Resultado(("Chivas", "Atlas", "Estadio Akron", "2023-06-01"), 0, 1)
 resultado3 = Resultado(("America", "Chivas", "Estadio Azteca", "2023-07-13"), 3, 2)
 
-print(resultado1.obtener_resultado_completo())
-print(resultado2.obtener_resultado_completo())
-print(resultado3.obtener_resultado_completo())
+print(resultado1.mostrar_resultado())
+print(resultado2.mostrar_resultado())
+print(resultado3.mostrar_resultado())

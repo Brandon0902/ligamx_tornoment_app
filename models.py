@@ -97,10 +97,7 @@ class Resultado:
         self.partido = partido
         self.goles_e1 = goles_e1
         self.goles_e2 = goles_e2
+    
+   def mostrar_resultado(self):
+        return f"{self.partido[0]} {self.goles_e1} - {self.goles_e2} {self.partido[1]}"
 
-   def obtener_resultado_completo(self):
-        equipo1 = self.partido[0]
-        equipo2 = self.partido[1]
-        estadio = self.partido[2]
-        fecha = self.partido[3]
-        return f"{equipo1} {self.goles_e1} - {self.goles_e2} {equipo2}, {estadio}, {fecha}"
