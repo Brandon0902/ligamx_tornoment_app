@@ -82,14 +82,15 @@ class EquipoTorneo:
     
 
 class Partido:
-   def __init__(self,equipo1, equipo2, estadio,fecha):
+    def __init__(self, equipo1, equipo2, estadio, fecha):
         self.equipo1 = equipo1
-        self.equipo2= equipo2
+        self.equipo2 = equipo2
         self.estadio = estadio
         self.fecha = fecha
+    
+    def mostrar_partido(self):
+        print(f"{self.equipo1.nombre} vs {self.equipo2.nombre} en el estadio {self.estadio} el {self.fecha}")
 
-   def mostrar_partido(self):
-          return f"{self.equipo1} vs {self.equipo2} en {self.estadio} el {self.fecha}"
    
  
 class Resultado:
@@ -97,7 +98,8 @@ class Resultado:
         self.partido = partido
         self.goles_e1 = goles_e1
         self.goles_e2 = goles_e2
-    
+
    def mostrar_resultado(self):
-        return f"{self.partido[0]} {self.goles_e1} - {self.goles_e2} {self.partido[1]}"
+        return f"Resultado: {self.partido.mostrar_partido()} - {self.goles_e1}-{self.goles_e2}"
+    
 

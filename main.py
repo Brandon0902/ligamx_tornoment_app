@@ -62,22 +62,28 @@ print("-------------------")
 #Crear partidos
 print("Partidos")
 print("-------------------")
-partido1 = Partido(atlas.nombre,america.nombre, "Estadio Jalisco", "2023-05-09")
-partido2 = Partido(atlas.nombre, chivas.nombre, "Estadio Akron", "2023-06-01")
-partido3 = Partido(america.nombre, chivas.nombre, "Estadio Azteca", "2023-07-13")
 
-print(partido1.mostrar_partido())
-print(partido2.mostrar_partido())
-print(partido3.mostrar_partido())
+partido1 = Partido(atlas, america, "Estadio Jalisco", "2023-05-09")
+partido2 = Partido(chivas, atlas, "Estadio Akron", "2023-06-01")
+partido3 = Partido(america, chivas, "Estadio Azteca", "2023-07-13")
+
+
+partido1.mostrar_partido()
+partido2.mostrar_partido()
+partido3.mostrar_partido()
+
 print("-------------------")
 #Resultados de los partidos
 print("Resultados de los partidos")
 print("-------------------")
 
-resultado1 = Resultado(("Atlas", "America", "Estadio Jalisco", "2023-05-09"), 2, 1)
-resultado2 = Resultado(("Chivas", "Atlas", "Estadio Akron", "2023-06-01"), 0, 1)
-resultado3 = Resultado(("America", "Chivas", "Estadio Azteca", "2023-07-13"), 3, 2)
+resultado1 = Resultado((partido1), 2, 1)
+resultado2 = Resultado((partido2), 0, 1)
+resultado3 = Resultado((partido3), 3, 2)
 
-print(resultado1.mostrar_resultado())
-print(resultado2.mostrar_resultado())
-print(resultado3.mostrar_resultado())
+for resultado in [resultado1, resultado2, resultado3]:
+    print(f"Partido: {resultado.partido.equipo1.nombre} vs {resultado.partido.equipo2.nombre}")
+    print(f"Estadio: {resultado.partido.estadio}, Fecha: {resultado.partido.fecha}")
+    print(f"Goles: {resultado.goles_e1} - {resultado.goles_e2}")
+    print("------------------------")
+
