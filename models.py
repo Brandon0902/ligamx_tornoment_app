@@ -1,9 +1,10 @@
 class Equipo:
-    def __init__(self, logotipo, jugadores, dt, nombre):
+    def __init__(self, logotipo, jugadores, director_tecnico, nombre, id=None):
         self.logotipo = logotipo
         self.jugadores = jugadores
-        self.dt = dt
+        self.director_tecnico = director_tecnico
         self.nombre = nombre
+        self.id = id
        
 class Jugador:
    def __init__(self,nombre, numero, nacionalidad,posicion,rol):
@@ -27,12 +28,13 @@ class DirectorTecnico:
         self.director_tecnico = director_tecnico
 
 class Torneo:
-    def __init__(self, nombre):
+    def __init__(self, nombre, id=None):
         self.nombre = nombre
         self.equipos = []
         self.partidos = []
         self.tabla_posiciones = TablaPosiciones(self)  
         self.resultados = []
+        self.id = id
 
     def agregar_equipo(self, equipo):
         self.equipos.append(equipo)
